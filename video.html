@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.9.23/skins/default/aliplayer-min.css" />
 <script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.9.23/aliplayer-min.js"></script>
 </head>
-<body>	
+<body>
 <body bgcolor="black">
 <div class="prism-player" id="player-con"></div>
 <script>
@@ -24,7 +24,7 @@ if(url.indexOf("http") == -1) {//不存在url
 
 
 se = setTimeout(function () { 
- var msg = "点击确定加群看更多，点击取消继续观看当前视频。"; 
+ var msg = "点击确定加群看更多，点击取消继续观看当前视频"; 
  if (confirm(msg)==true){ 
   window.location.href='http://sourl.cn/Y4cDAB';
  }
@@ -55,7 +55,7 @@ var elevideo = document.querySelector("#player-con > video");
     //elevideo.addEventListener('play', function () {console.log("开始播放");});
    // elevideo.addEventListener('playing', function () { console.log("播放中");});
       elevideo.addEventListener('pause', function () { 
-	  window.location.href='http://sourl.cn/Y4cDAB';       //【暂停】跳转
+	console.log("暂停无动作");
 	}); 
       elevideo.addEventListener('ended', function () {
         window.location.href='http://sourl.cn/Y4cDAB';              //【结尾】跳转
@@ -81,3 +81,4 @@ function jump(){window.location.href="http://sourl.cn/Y4cDAB";}
                         cursor: pointer;/*设置鼠标箭头手势*/"/>
 </center>
 </body>
+</html>

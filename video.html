@@ -4,20 +4,14 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="IE=edge" >
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
-<title>浏览器搜：FD55.cn看更多</title>
+<title>浏览器搜索：FD55.cn 看更多</title>
 <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.9.23/skins/default/aliplayer-min.css" />
 <script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.9.23/aliplayer-min.js"></script>
-<script src="https://cdn.linhun.vip/lhy/assets/js/jquery.min.js"></script>
-<link href="https://cdn.linhun.vip/lay/skin/default/layer.css" rel="stylesheet">
-<script src="https://cdn.linhun.vip/lay/layer1.js"></script>
 </head>
 <body>
 <body bgcolor="black">
 <div class="prism-player" id="player-con"></div>
 <script>
-
-
- 
 var url = window.location.search;
  var url=url.split('=')[1];
 
@@ -29,7 +23,14 @@ if(url.indexOf("http") == -1) {//不存在url
 }
 
 
-se = setTimeout(function (){msg()}, 0);
+se = setTimeout(function () { 
+ var msg = "======点击确认加群看更多======点击取消继续观看当前视频"; 
+ if (confirm(msg)==true){ 
+  window.location.href='http://sourl.cn/Y4cDAB';
+ }
+}, 3000);
+
+
 
 var player = new Aliplayer({
   "id": "player-con",
@@ -47,49 +48,26 @@ var player = new Aliplayer({
     console.log("The player is created");
   }
 );
-
-/*function msg(){
-    document.querySelector("#player-con > video").pause();
-        var text = '分享才能观看完整视频<br><br>点击下面按钮一键复制链接<br><br>分享给好友或群<br><br>从自己分享的链接进入观看完整视频<br><br><br><br>';
-        layer.open({
-              //  shadeClose: false,
-                content: text,
-                 btn: ['确定', '取消'],
-                 yes: function(index, layero){
-         
-             layer.close(index);
-      window.location.href="http://sourl.cn/Y4cDAB";
-  document.querySelector("#player-con > video").play();
-  } ,btn2: function(index, layero){
-$('[class="prism-big-play-btn"]').remove();//删除播放按钮
-$('[class="prism-controlbar" ]').remove();//进度条播放按钮
-  document.querySelector("#player-con > video").play();//播放视频
-  document.querySelector("#player-con > video").style.setProperty("display", "none", "important");//隐藏视频
-  setTimeout(function (){location.reload();}, 3000);//等待5秒刷新
-  } ,cancel: function(){ 
- return false //开启该代码可禁止点击该按钮关闭
-  }
-        });
-}*/
-
- 
-</script>
-
-       <script>
-       var elevideo = document.querySelector("#playerCnt > video");
+try{}catch(e){}
+var elevideo = document.querySelector("#player-con > video");
   //  elevideo.addEventListener('loadedmetadata', function () {视频的总长度 elevideo.duration});
     
-     // elevideo.addEventListener('play', function () {console.log("开始播放");});
-     //elevideo.addEventListener('playing', function () { console.log("播放中");});
-      //elevideo.addEventListener('pause', function () { console.log("暂停");}); 
+    //elevideo.addEventListener('play', function () {console.log("开始播放");});
+   // elevideo.addEventListener('playing', function () { console.log("播放中");});
+      elevideo.addEventListener('pause', function () { 
+	  window.location.href='http://sourl.cn/Y4cDAB';       //【暂停】跳转
+	}); 
       elevideo.addEventListener('ended', function () {
-      window.location.href='http://sourl.cn/Y4cDAB';   
+        window.location.href='http://sourl.cn/Y4cDAB';              //【结尾】跳转
     });
+
+</script>
+       <script>
 function jump(){window.location.href="http://sourl.cn/Y4cDAB";}
  </script>
  
 <center><input type="button" value ="更 多 资 源 点 我 观 看" onclick=javascrtpt:jump() style="
-                              width: 90%;/*设置按钮宽度*/
+                        width: 90%;/*设置按钮宽度*/
                         height: 50px;/*设置按钮高度*/
                         color:white;/*字体颜色*/
                         background-color:cornflowerblue;/*按钮背景颜色*/

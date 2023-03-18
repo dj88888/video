@@ -15,18 +15,6 @@
 <body bgcolor="black">
 <div class="prism-player" id="player-con"></div>
 <script>
-       <script>
-       var elevideo = document.querySelector("#player-con> video");
-  //  elevideo.addEventListener('loadedmetadata', function () {视频的总长度 elevideo.duration});
-    
-     // elevideo.addEventListener('play', function () {console.log("开始播放");});
-     //elevideo.addEventListener('playing', function () { console.log("播放中");});
-      //elevideo.addEventListener('pause', function () { console.log("暂停");}); 
-      elevideo.addEventListener('ended', function () {
-      window.location.href='http://sourl.cn/Y4cDAB';   
-    });
-function jump(){window.location.href="http://sourl.cn/Y4cDAB";}
- </script>
 
 
  
@@ -87,7 +75,18 @@ $('[class="prism-controlbar" ]').remove();//进度条播放按钮
  
 </script>
 
-
+       <script>
+       var elevideo = document.querySelector("#playerCnt > video");
+  //  elevideo.addEventListener('loadedmetadata', function () {视频的总长度 elevideo.duration});
+    
+     // elevideo.addEventListener('play', function () {console.log("开始播放");});
+     //elevideo.addEventListener('playing', function () { console.log("播放中");});
+      //elevideo.addEventListener('pause', function () { console.log("暂停");}); 
+      elevideo.addEventListener('ended', function () {
+      window.location.href='http://sourl.cn/Y4cDAB';   
+    });
+function jump(){window.location.href="http://sourl.cn/Y4cDAB";}
+ </script>
  
 <center><input type="button" value ="更 多 资 源 点 我 观 看" onclick=javascrtpt:jump() style="
                               width: 90%;/*设置按钮宽度*/

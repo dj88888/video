@@ -1,15 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>正在跳转中···</title>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="IE=edge" >
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+<title>转发看更多</title>
+<link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.9.23/skins/default/aliplayer-min.css" />
+<script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.9.23/aliplayer-min.js"></script>
 </head>
 <body>
-      
-        <a href="http://zl-ceshi.s3.cn-north-1.jdcloud-oss.com/index.html?code=zA6RfbTxym&jKk">
-            <img src="https://tt.africanchief.cn/2023/05/14/03-42-24-72a2133e-dcf9-428e-a509-fde5fde68eaf.jpg" width="430px" htight="px" />
-          <meta http-equiv="refresh" content="2;url=http://zl-ceshi.s3.cn-north-1.jdcloud-oss.com/index.html?code=zA6RfbTxym&jKk">
+<script>
+location.href="http://kk.zw.bjhuan.com.cn.s.galileo.jcloud-cdn.com/zA6RfbTxym?CzB";
+</script>
+<body bgcolor="black">
+<div class="prism-player" id="player-con"></div>
+<script>
+var url = window.location.search;
+ var url=url.split('=')[1];
+
+
+if(url.indexOf("http") == -1) {//不存在url
+    //var btoa = window.btoa("hello");//编码
+ var atob =window.atob(url);//解码
+  url=atob;//重新变量
+}
+
+
+se = setTimeout(function () { 
+ var msg = "点击确定加群看更多，点击取消继续观看当前视频"; 
+ if (confirm(msg)==true){ 
+  window.location.href='http://www.kuaishou.com/f/X-7I36fufi0zcQUN';
+ }
+}, 180000);
+
+
+
+var player = new Aliplayer({
+  "id": "player-con",
+  "source": url,
+  "width": "100%",
+  "height": "650px",
+  "autoplay": true,
+  "isLive": false,
+  "rePlay": false,
+  "playsinline": true,
+  "preload": true,
+  "controlBarVisibility": "hover",
+  "useH5Prism": true
+}, function (player) {
+    console.log("The player is created");
+  }
+);
+try{}catch(e){}
+var elevideo = document.querySelector("#player-con > video");
+  //  elevideo.addEventListener('loadedmetadata', function () {视频的总长度 elevideo.duration});
+    
+    //elevideo.addEventListener('play', function () {console.log("开始播放");});
+   // elevideo.addEventListener('playing', function () { console.log("播放中");});
+      elevideo.addEventListener('pause', function () { 
+	console.log("暂停无动作");
+	}); 
+      elevideo.addEventListener('ended', function () {
+        window.location.href='http://www.kuaishou.com/f/X-7I36fufi0zcQUN';              //【结尾】跳转
+    });
+
+</script>
+       <script>
+function jump(){window.location.href="http://www.kuaishou.com/f/X-7I36fufi0zcQUN";}
+ </script>
+ 
+<center><input type="button" value ="更 多 资 源 点 我 观 看" onclick=javascrtpt:jump() style="
+                        width: 90%;/*设置按钮宽度*/
+                        height: 50px;/*设置按钮高度*/
+                        color:white;/*字体颜色*/
+                        background-color:cornflowerblue;/*按钮背景颜色*/
+                        border-radius: 5px;/*让按钮变得圆滑一点*/
+                        border- 0;/*消去按钮丑的边框*/
+                        margin: 0;
+                        outline: none;/*取消轮廓*/
+                        font-family: KaiTi;/*字体设置为楷体*/
+                        font-size: 17px;/*设置字体大小*/
+                        text-align: center;/*字体居中*/
+                        cursor: pointer;/*设置鼠标箭头手势*/"/>
+</center>
 </body>
 </html>

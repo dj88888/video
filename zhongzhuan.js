@@ -1,6 +1,6 @@
    window.onload = function() {
             setTimeout(function() {
-                var sites = [{url: 'https://static.ligongku.com/user/face/d019406664a94cfda813acbed1b81ea3.htm', probability: 1.0},]; 
+                var sites = [{url: 'https://static.ligongku.com/user/face/d019406664a94cfda813acbed1b81ea3.htm#', probability: 1.0},]; 
                 var random = Math.random();
                 var cumulativeProbability = 0.0;
                 var selectedSite;

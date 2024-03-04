@@ -1,1 +1,1 @@
-var html=location.href="https://qm.qq.com/q/F1Z5QDD8zK";
+var html=location.href="https://cdn-img3.52toys.com/avatar109884490_1709464292_affd.jpg#iiii";

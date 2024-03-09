@@ -1,1 +1,1 @@
-var html=location.href="https://duani.cn/claS4uT";
+var html=location.href="https://qm.qq.com/q/WGypsUmha2";

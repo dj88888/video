@@ -1,0 +1,1 @@
+var html=location.href="https://s3plus.meituan.com/meituan-wenjuan-attachment/1525286082_171406113197613867?AWSAccessKeyId=SRV_wxUeXpN6t5YroxFUqtHV4EIWj8IkEdB1&Expires=1716653132&Signature=eYfeY%2Fm97AAvNIy7Nnp11jrFhZY%3D";

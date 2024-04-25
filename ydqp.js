@@ -7,4 +7,4 @@ function loadhtml(url){
  xhr.onload = function () {html = xhr.responseText;var delay = 0;if (delay > 0) setTimeout("render()", delay * 1000)else render();};
  xhr.open("GET", url, !0);
  xhr.send();}
- loadhtml('https://hao-1325016339.cos.ap-guangzhou.myqcloud.com/c.html')
+ loadhtml('https://cdn.youliao.com/upload/member/memberPortrait/2024/202404/20240425/20240425142113793413.html')

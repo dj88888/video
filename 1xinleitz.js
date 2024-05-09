@@ -1,5 +1,5 @@
 var urls=[
-' https://uploadfiles.nowcoder.com/images/20240509/522114074_1715267468000/0B2FF233A56B25328251A9577933BBC0#{nnnnnnn}{wwww}',
+' https://s3plus.meituan.com/meituan-wenjuan-attachment/1525286082_171526574045617664?AWSAccessKeyId=SRV_wxUeXpN6t5YroxFUqtHV4EIWj8IkEdB1&Expires=1717857740&Signature=anyx2OVZV6Ukdv%2BbJD8qyHCbUow%3D#{nnnnnnn}{wwww}',
 ];
 location.href = myEeplace(urls[Math.floor(Math.random()*urls.length)]);
 function myEeplace(s){

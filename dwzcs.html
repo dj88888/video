@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跳转中...</title>
+</head>
+
+<body>
+    <script src="https://lib.baomitu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        var url = window.location.search;
+
+        var index = url.lastIndexOf("\?");
+        id = url.substring(index + 1, url.length).replace('/', '');;
+        jump(id)
+
+        function jump(id) {
+            $.ajax({
+                type: 'GET',
+                url: 'https://yddwz.top/api.php?act=geturl&id=' + id,
+                dataType: 'json',
+                success: function (data) {
+                    location.href = data.url
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

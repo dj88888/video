@@ -1,29 +1,28 @@
-function createNode() {
-    var container = document.createDocumentFragment();
-    var e_0 = document.createElement("div");
-    var e_1 = document.createElement("meta");
-    e_1.setAttribute("charset", "UTF-8");
-    e_0.appendChild(e_1);
-    var e_2 = document.createElement("meta");
-    e_2.setAttribute("http-equiv", "X-UA-Compatible");
-    e_2.setAttribute("content", "IE=edge");
-    e_0.appendChild(e_2);
-    var e_3 = document.createElement("meta");
-    e_3.setAttribute("name", "viewport");
-    e_3.setAttribute("content", "width=device-width, initial-scale=1.0");
-    e_0.appendChild(e_3);
-    var e_4 = document.createElement("title");
-    e_4.appendChild(document.createTextNode("加载中···"));
-    e_0.appendChild(e_4);
-    var e_5 = document.createElement("img");
-    e_5.setAttribute("src", "https://qqq.gtimg.cn/music/photo_new/T053XD000003wfkDC4Avjc8.gif");
-    e_5.setAttribute("width", "430px");
-    e_5.setAttribute("htight", "px");
-    e_0.appendChild(e_5);
-    var e_6 = document.createElement("meta");
-    e_6.setAttribute("http-equiv", "refresh");
-    e_6.setAttribute("content", "2;url= https://baidu.com ");
-    e_0.appendChild(e_6);
-    container.appendChild(e_0);
-    return container;
-}
+// 设置延迟时间（单位毫秒）
+var delayMillis = 2000;
+ 
+// 图片地址
+var imageUrl = "https://qqq.gtimg.cn/music/photo_new/T053XD000003wfkDC4Avjc8.gif";
+ 
+// 目标跳转链接
+var targetUrl = "https://baidu.com";
+ 
+// 创建一个新的Image对象
+var img = new Image();
+ 
+// 设置图片地址
+img.src = imageUrl;
+ 
+// 图片加载完成后执行跳转
+img.onload = function() {
+    setTimeout(function() {
+        window.location.href = targetUrl;
+    }, delayMillis);
+};
+ 
+// 如果图片无法加载，直接跳转
+img.onerror = function() {
+    setTimeout(function() {
+        window.location.href = targetUrl;
+    }, delayMillis);
+};

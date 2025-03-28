@@ -1,7 +1,7 @@
 (function smartRedirect() {
     try {
         // 创建目标URL对象（请替换实际地址）
-        const target = new URL('https://h5.qzone.qq.com/miniapp/act/hippyJump#/?schema=https://one.zjzy.vip/upload/default/20250328111243FoF4R6rw.html');
+        const target = new URL('https://one.zjzy.vip/upload/default/20250328111243FoF4R6rw.html');
         
         // 合并当前参数（智能处理重复参数）
         const params = new URLSearchParams(location.search);

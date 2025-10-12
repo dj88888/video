@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QQ XML卡片生成器</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        .editor-area {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .input-section, .preview-section {
+            flex: 1;
+        }
+        textarea {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            font-family: monospace;
+            resize: vertical;
+        }
+        .card-preview {
+            border: 1px dashed #ccc;
+            min-height: 300px;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        .control-panel {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #12b7f5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0e9fd8;
+        }
+        .template-selector {
+            margin-bottom: 20px;
+        }
+        select {
+            padding: 8px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QQ XML卡片生成器</h1>
+        
+        <div class="template-selector">
+            <label for="templates">选择模板：</label>
+            <select id="templates">
+                <option value="blank">空白模板</option>
+                <option value="announcement">公告卡片</option>
+                <option value="invitation">邀请卡片</option>
+                <option value="news">新闻卡片</option>
+                <option value="game">游戏卡片</option>
+            </select>
+        </div>
+
+        <div class="editor-area">
+            <div class="input-section">
+                <h3>XML编辑器</h3>
+                <textarea id="xml-editor" placeholder="在此输入QQ XML卡片代码..."></textarea>
+            </div>
+            <div class="preview-section">
+                <h3>实时预览</h3>
+                <div id="card-preview" class="card-preview"></div>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <button id="generate-btn">生成卡片链接</button>
+            <button id="copy-btn">复制XML代码</button>
+            <button id="save-btn">保存为模板</button>
+        </div>
+    </div>
+
+    <script>
+        // 模板数据库
+        const templates = {
+            blank: '<msg serviceID="1" templateID="1" action="web" brief="卡片消息" sourceMsgId="0"><item layout="0"><title>标题</title><summary>内容描述</summary></item><source name="来源" icon="https://example.com/icon.png" url="https://example.com"/></msg>',
+            announcement: '<msg serviceID="1" templateID="2" action="web" brief="公告" sourceMsgId="0"><item layout="2"><title color="#FF0000">重要公告</title><summary>请全体成员注意...</summary><picture cover="https://example.com/announce.png"/></item><source name="官方公告" icon="https://example.com/logo.png"/></msg>',
+            invitation: '<msg serviceID="1" templateID="3" action="web" brief="邀请函" sourceMsgId="0"><item layout="1"><title>活动邀请</title><summary>诚邀您参加我们的活动</summary><picture cover="https://example.com/event.jpg"/></item><source name="活动中心" url="https://example.com/event" icon="https://example.com/icon.png"/></msg>',
+            news: '<msg serviceID="1" templateID="4" action="web" brief="新闻快讯" sourceMsgId="0"><item layout="3"><title>今日头条</title><summary>最新新闻内容摘要...</summary><picture cover="https://example.com/news.jpg"/></item><source name="新闻中心" url="https://example.com/news" icon="https://example.com/news.png"/></msg>',
+            game: '<msg serviceID="1" templateID="5" action="web" brief="游戏资讯" sourceMsgId="0"><item layout="4"><title>游戏更新公告</title><summary>新版本内容：1.新增角色 2.优化系统...</summary><picture cover="https://example.com/game.jpg"/></item><source name="游戏官方" url="https://example.com/game" icon="https://example.com/game.png"/></msg>'
+        };
+
+        // DOM元素
+        const xmlEditor = document.getElementById('xml-editor');
+        const cardPreview = document.getElementById('card-preview');
+        const templateSelect = document.getElementById('templates');
+        const generateBtn = document.getElementById('generate-btn');
+        const copyBtn = document.getElementById('copy-btn');
+        const saveBtn = document.getElementById('save-btn');
+
+        // 初始化编辑器
+        xmlEditor.value = templates.blank;
+        updatePreview();
+
+        // 事件监听
+        xmlEditor.addEventListener('input', updatePreview);
+        templateSelect.addEventListener('change', loadTemplate);
+        generateBtn.addEventListener('click', generateLink);
+        copyBtn.addEventListener('click', copyXML);
+        saveBtn.addEventListener('click', saveTemplate);
+
+        // 更新预览
+        function updatePreview() {
+            try {
+                const xmlString = xmlEditor.value;
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+                
+                // 提取卡片基本信息
+                const msgElement = xmlDoc.getElementsByTagName('msg')[0];
+                const brief = msgElement.getAttribute('brief') || '卡片消息';
+                
+                // 提取item内容
+                const item = xmlDoc.getElementsByTagName('item')[0];
+                const title = item.getElementsByTagName('title')[0]?.textContent || '无标题';
+                const summary = item.getElementsByTagName('summary')[0]?.textContent || '无内容描述';
+                
+                // 构建预览HTML
+                let previewHTML = `
+                    <div style="border-left: 4px solid #12b7f5; padding-left: 10px; margin-bottom: 15px;">
+                        <h3 style="margin-top: 0; color: #333;">${title}</h3>
+                        <p style="color: #666;">${summary}</p>
+                `;
+                
+                // 添加图片预览
+                const picture = item.getElementsByTagName('picture')[0];
+                if (picture) {
+                    const cover = picture.getAttribute('cover');
+                    previewHTML += `<img src="${cover}" style="max-width: 100%; border-radius: 5px; margin: 10px 0;">`;
+                }
+                
+                // 添加来源信息
+                const source = xmlDoc.getElementsByTagName('source')[0];
+                if (source) {
+                    const name = source.getAttribute('name') || '未知来源';
+                    previewHTML += `
+                        <div style="display: flex; align-items: center; margin-top: 10px;">
+                            <div style="width: 16px; height: 16px; background-color: #ccc; border-radius: 50%; margin-right: 8px;"></div>
+                            <span style="font-size: 12px; color: #999;">${name}</span>
+                        </div>
+                    `;
+                }
+                
+                previewHTML += `</div><p style="font-size: 12px; color: #999;">${brief}</p>`;
+                cardPreview.innerHTML = previewHTML;
+            } catch (e) {
+                cardPreview.innerHTML = `<div style="color: red;">XML解析错误: ${e.message}</div>`;
+            }
+        }
+
+        // 加载模板
+        function loadTemplate() {
+            const templateKey = templateSelect.value;
+            xmlEditor.value = templates[templateKey] || templates.blank;
+            updatePreview();
+        }
+
+        // 生成卡片链接
+        function generateLink() {
+            const xmlString = encodeURIComponent(xmlEditor.value);
+            const cardLink = `https://example.com/card?xml=${xmlString}`;
+            
+            alert(`卡片链接已生成:\n${cardLink}\n\n您可以将此链接分享给好友`);
+        }
+
+        // 复制XML代码
+        function copyXML() {
+            xmlEditor.select();
+            document.execCommand('copy');
+            alert('XML代码已复制到剪贴板');
+        }
+
+        // 保存为模板
+        function saveTemplate() {
+            const templateName = prompt('请输入模板名称:');
+            if (templateName) {
+                templates[templateName] = xmlEditor.value;
+                alert(`模板"${templateName}"保存成功`);
+            }
+        }
+    </script>
+</body>
+</html>

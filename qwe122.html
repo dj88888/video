@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1">
+
+<title>QQ SDK Test</title>
+
+<script
+src="https://qqvip-web.cdn-go.cn/mono/latest/vendors/qqmobile/qqapi.wk.js?_bid=5234">
+</script>
+
+</head>
+
+<body>
+
+<script>
+(function () {
+
+    var targetUrl = "https://www.baidu.com/";
+
+    function openQQ() {
+
+        // 优先测试手Q专用接口
+        if (
+            window.mqq &&
+            window.mqq.ui &&
+            typeof window.mqq.ui.openUrl === "function"
+        ) {
+
+            window.mqq.ui.openUrl({
+                url: targetUrl,
+                target: 1
+            });
+
+            return;
+        }
+
+        // 再测试 invoke
+        if (
+            window.mqq &&
+            typeof window.mqq.invoke === "function"
+        ) {
+
+            window.mqq.invoke("ui", "openUrl", {
+                url: targetUrl,
+                target: 1,
+                style: 2
+            });
+
+            return;
+        }
+
+        // SDK 完全不可用
+        document.body.innerHTML =
+            "QQ SDK API 不可用";
+
+    }
+
+    setTimeout(openQQ, 500);
+
+})();
+</script>
+
+</body>
+</html>

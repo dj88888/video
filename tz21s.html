@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>QQ 跳转测试</title>
+
+    <script
+        charset="UTF-8"
+        type="text/javascript"
+        src="https://qqvip-web.cdn-go.cn/mono/latest/vendors/qqmobile/qqapi.wk.js?_bid=5234">
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        #log {
+            white-space: pre-wrap;
+            word-break: break-all;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="log">正在检测...</div>
+
+<script>
+(function () {
+
+    var logBox = document.getElementById("log");
+
+    function log(text) {
+        console.log(text);
+        logBox.textContent += "\n" + text;
+    }
+
+    // 测试目标地址
+    var targetUrl = "https://www.baidu.com/";
+
+    logBox.textContent = "开始检测";
+
+    log("目标 URL：");
+    log(targetUrl);
+
+    // 检测 QQ API
+    if (window.mqq) {
+
+        log("✓ 检测到 window.mqq");
+
+        if (typeof window.mqq.invoke === "function") {
+
+            log("✓ 检测到 mqq.invoke");
+
+            try {
+
+                window.mqq.invoke("ui", "openUrl", {
+                    url: targetUrl,
+                    target: 1,
+                    style: 2
+                });
+
+                log("✓ mqq.invoke 已执行");
+
+            } catch (error) {
+
+                log("✗ mqq.invoke 执行异常：");
+                log(String(error));
+
+            }
+
+        } else {
+
+            log("✗ mqq.invoke 不存在");
+
+        }
+
+    } else {
+
+        log("✗ window.mqq 不存在");
+        log("当前环境没有成功提供 QQ API");
+
+    }
+
+    // 5 秒后进入 hippyJump
+    setTimeout(function () {
+
+        log("准备执行 hippyJump...");
+
+        window.location.href =
+            "https://h5.qzone.qq.com/miniapp/act/hippyJump#/?schema=666";
+
+    }, 5000);
+
+})();
+</script>
+
+</body>
+</html>

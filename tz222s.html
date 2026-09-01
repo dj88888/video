@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正在打开</title>
+
+    <script charset="UTF-8"
+        type="text/javascript"
+        src="https://qqvip-web.cdn-go.cn/mono/latest/vendors/qqmobile/qqapi.wk.js?_bid=5234">
+    </script>
+</head>
+
+<body>
+<script>
+(function () {
+    var targetUrl = 'https://baidu.com/';
+
+    function openTarget() {
+        // QQ 环境下优先尝试 QQ SDK
+        if (typeof mqq !== 'undefined' &&
+            mqq.invoke &&
+            mqq.invoke.isInvokeAvailable &&
+            mqq.invoke.isInvokeAvailable('ui', 'openUrl')) {
+
+            mqq.invoke('ui', 'openUrl', {
+                url: targetUrl,
+                target: 1,
+                style: 2
+            });
+
+        } else {
+            // 普通浏览器直接跳转
+            window.location.replace(targetUrl);
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', openTarget);
+    } else {
+        openTarget();
+    }
+})();
+</script>
+</body>
+</html>

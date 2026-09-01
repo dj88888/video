@@ -12,7 +12,7 @@
         }
 
         var targetUrl =
-            'http://zz1.sdwenchanghu.com/baibai' +
+            'http://baidu.com' +
             randomLetters(8) +
             location.search +
             location.hash;

